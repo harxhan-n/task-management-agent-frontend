@@ -89,15 +89,15 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onMeetAgent, isConnected }) =
           <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
             <div className="flex items-center">
               <span className="text-primary-500 mr-2">•</span>
-              "Create a high priority task to buy groceries tomorrow"
+              &ldquo;Create a high priority task to buy groceries tomorrow&rdquo;
             </div>
             <div className="flex items-center">
               <span className="text-primary-500 mr-2">•</span>
-              "Add a task to finish the project report by Friday"
+              &ldquo;Add a task to finish the project report by Friday&rdquo;
             </div>
             <div className="flex items-center">
               <span className="text-primary-500 mr-2">•</span>
-              "Remind me to call mom next week"
+              &ldquo;Remind me to call mom next week&rdquo;
             </div>
           </div>
         </motion.div> */}
@@ -134,7 +134,7 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onMeetAgent, isConnected }) =
           
           {!isConnected && (
             <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
-              💡 Note: If disconnected, you can still use manual task creation via the "+" button
+              💡 Note: If disconnected, you can still use manual task creation via the &ldquo;+&rdquo; button
             </p>
           )}
         </motion.div>
