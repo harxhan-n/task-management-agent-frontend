@@ -1,0 +1,45 @@
+[build]
+  # Build command
+  command = "npm run build"
+  
+  # Directory to publish (output directory)
+  publish = "out"
+  
+  # Environment variables
+  [build.environment]
+    NEXT_PUBLIC_API_URL = "https://task-management-agent-backend-production.up.railway.app"
+    NEXT_PUBLIC_WS_URL = "wss://task-management-agent-backend-production.up.railway.app"
+    NODE_VERSION = "18"
+
+# Redirect all requests to index.html for SPA behavior
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Custom error pages
+[[redirects]]
+  from = "/404"
+  to = "/404.html"
+  status = 404
+
+# API proxy (if needed for CORS)
+[[redirects]]
+  from = "/api/*"
+  to = "https://task-management-agent-backend-production.up.railway.app/api/:splat"
+  status = 200
+  force = false
